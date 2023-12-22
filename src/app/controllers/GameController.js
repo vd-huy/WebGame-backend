@@ -18,6 +18,12 @@ class GameController {
       res.send({ message: "Game have added", alert: true });
     }
   }
+
+  async getGame(req, res, next) {
+    const dataGame = await gameModel.find({});
+
+    res.send(JSON.stringify(dataGame));
+  }
 }
 
 module.exports = new GameController();
