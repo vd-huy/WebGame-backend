@@ -19,10 +19,24 @@ class GameController {
     }
   }
 
+  //[GET]
   async getGame(req, res, next) {
     const dataGame = await gameModel.find({});
 
     res.send(JSON.stringify(dataGame));
+  }
+
+  //[PUT]
+
+  async updateGame(req, res, next) {
+    console.log(req.body);
+
+    const dataUpdate = await gameModel
+      .updateOne({ _id: req.params.id }, req.body)
+      .then(() => {
+        res.send({ message: "Update Complete", alert: true });
+      })
+      .catch(next);
   }
 }
 
