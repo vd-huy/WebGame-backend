@@ -1,3 +1,4 @@
+const { mongoose } = require("mongoose");
 const gameModel = require("../models/gameModel");
 
 class GameController {
@@ -32,7 +33,7 @@ class GameController {
     console.log(req.body);
 
     const dataUpdate = await gameModel
-      .updateOne({ _id: req.params.id }, req.body)
+      .updateOne({ _id: req.body._id }, req.body)
       .then(() => {
         res.send({ message: "Update Complete", alert: true });
       })
