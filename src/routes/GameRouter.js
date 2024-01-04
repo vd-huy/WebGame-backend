@@ -6,5 +6,6 @@ const router = express.Router();
 router.post("/newgame", GameController.createGame);
 router.get("/getgame", GameController.getGame);
 router.put("/updategame", GameController.updateGame);
+router.get("/detail/:slug", GameController.getDetailGame);
 
 module.exports = router;

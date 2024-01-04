@@ -39,6 +39,14 @@ class GameController {
       })
       .catch(next);
   }
+
+  //[GET] getDetail
+
+  async getDetailGame(req, res, nex) {
+    const getDataDetail = await gameModel.findOne({ slug: req.params.slug });
+
+    res.send(JSON.stringify(getDataDetail));
+  }
 }
 
 module.exports = new GameController();
